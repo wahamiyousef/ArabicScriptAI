@@ -1,0 +1,116 @@
+{
+  "alphabet": [
+    {
+      "sound": "alif",
+      "letter": "ا"
+    },
+    {
+      "sound": "baa",
+      "letter": "ب"
+    },
+    {
+      "sound": "taa",
+      "letter": "ت"
+    },
+    {
+      "sound": "thaa",
+      "letter": "ث"
+    },
+    {
+      "sound": "jeem",
+      "letter": "ج"
+    },
+    {
+      "sound": "haa",
+      "letter": "ح"
+    },
+    {
+      "sound": "khaa",
+      "letter": "خ"
+    },
+    {
+      "sound": "dal",
+      "letter": "د"
+    },
+    {
+      "sound": "dhal",
+      "letter": "ذ"
+    },
+    {
+      "sound": "raa",
+      "letter": "ر"
+    },
+    {
+      "sound": "zay",
+      "letter": "ز"
+    },
+    {
+      "sound": "seen",
+      "letter": "س"
+    },
+    {
+      "sound": "sheen",
+      "letter": "ش"
+    },
+    {
+      "sound": "saad",
+      "letter": "ص"
+    },
+    {
+      "sound": "daad",
+      "letter": "ض"
+    },
+    {
+      "sound": "taa",
+      "letter": "ط"
+    },
+    {
+      "sound": "zaa",
+      "letter": "ظ"
+    },
+    {
+      "sound": "ain",
+      "letter": "ع"
+    },
+    {
+      "sound": "ghain",
+      "letter": "غ"
+    },
+    {
+      "sound": "faa",
+      "letter": "ف"
+    },
+    {
+      "sound": "qaaf",
+      "letter": "ق"
+    },
+    {
+      "sound": "kaaf",
+      "letter": "ك"
+    },
+    {
+      "sound": "laam",
+      "letter": "ل"
+    },
+    {
+      "sound": "meem",
+      "letter": "م"
+    },
+    {
+      "sound": "noon",
+      "letter": "ن"
+    },
+    {
+      "sound": "haa",
+      "letter": "ه"
+    },
+    {
+      "sound": "waaw",
+      "letter": "و"
+    },
+    {
+      "sound": "yaa",
+      "letter": "ي"
+    }
+  ]
+}
