@@ -106,8 +106,15 @@ const Canvas = () => {
     
     const Upload = async () => {
       const data = new FormData();
-      //console.log(typeof(image))
-      data.append('file_to_upload', "https://cdn.discordapp.com/attachments/502568556999999518/1265758623930515569/image.png?ex=66a2ad14&is=66a15b94&hm=bfd682f8ab6324c35b6b8302022a5d34b8d1769c21722f855de7923b4b4fae9f&");
+      //console.log("TYPE: "+typeof(image))
+      //data.append('file_to_upload', "https://cdn.discordapp.com/attachments/502568556999999518/1265758623930515569/image.png?ex=66a2ad14&is=66a15b94&hm=bfd682f8ab6324c35b6b8302022a5d34b8d1769c21722f855de7923b4b4fae9f&");
+      //console.log(data)
+      
+      const blob = new Blob([image], {type : 'text/plain'})
+      data.append('file_to_upload', blob, 'file.txt')
+      console.log(data)
+      //console.log(data)
+
       await fetch('http://127.0.0.1:8080/api/upload', {
         method: 'POST',
         body: data
