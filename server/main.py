@@ -65,9 +65,23 @@ def uploadImg():
   if file:
     file_content = file.read().decode('utf-8')
 
+    #img = Image.open(file_content)
+    #img.load()
+
+    starter = file_content.find(',')
+    image_data = file_content[starter+1:]
+    image_data = bytes(image_data, encoding="ascii")
+    im = Image.open(BytesIO(base64.b64decode(image_data)))
+    im.save('images/rand.png')
+
+    text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
+    print("Letter: "+text)
+
     return jsonify({
         'success': True,
         'file': 'Received'
+        'file': 'Received',
+        'text': text
       })
   else:
     return jsonify({
