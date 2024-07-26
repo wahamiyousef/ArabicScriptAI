@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageFilter
 import os, pytesseract
 from werkzeug.utils import secure_filename
 
@@ -28,7 +28,7 @@ im.save('images/image.png')
 '''
 
 #img.show()
-text = pytesseract.image_to_string(img, lang="ara", config='--oem 3 --psm 6')
+text = pytesseract.image_to_string(img, lang="ara", config='--oem 1 --psm 6')
 print("text: "+text)
 #img = dir + '\\images\\test.png'
 #img = dir + "\\images\\test.png"

@@ -6,7 +6,7 @@ const Canvas = () => {
   const contextReference = useRef(null);
 
   const [isPressed, setIsPressed] = useState(false);
-  const [letter, setLetter] = useState(null);
+  const [letter, setLetter] = useState('');
 
   const clearCanvas = () => {
     const canvas = canvasReference.current;
@@ -80,7 +80,7 @@ const Canvas = () => {
 
   const submitCanvas = async () => {
     const image = await getImage();
-    console.log("bye"+image)
+    //console.log("bye"+image)
   /*
     if (image != null) {
       const data = new FormData();
@@ -116,13 +116,19 @@ const Canvas = () => {
       console.log(data)
       //console.log(data)
 
-      await fetch('http://127.0.0.1:8080/api/upload', {
+      const response = await fetch('http://127.0.0.1:8080/api/upload', {
         method: 'POST',
         body: data
-      }).then(resp => {
-        resp.json().then(data => {console.log(data)})
-        setLetter(data)
       })
+      /*.then(resp => {
+        resp.json().then(data => {console.log(data)})
+        console.log(data)
+      })
+        */
+      const result = await response.json();
+      console.log(result.text);
+      //console.log(typeof(result.text));
+      setLetter(result.text);
     }
     Upload();
     
@@ -139,6 +145,7 @@ const Canvas = () => {
       left: '50%',
       transform: 'translate(-50%, -50%)'
     }}*/>
+
       <canvas
         id="canvas"
         style={{ backgroundColor: 'red' }}
@@ -148,13 +155,14 @@ const Canvas = () => {
         onMouseMove={updateDraw}
         onMouseUp={endDraw}
       />
+
       <div>
         {letter != null
-          ? <p>Your word: {letter}</p>
+          ? <p>You wrote: {letter}</p>
           : <p>Loading...</p>
         }
       </div>
-      <p>You wrote: {letter}</p>
+
       <div className="buttons">
         <button onClick={clearCanvas}>Clear</button>
         <button onClick={submitCanvas}>Submit</button>
