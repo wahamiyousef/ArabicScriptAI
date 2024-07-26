@@ -6,6 +6,7 @@ const Canvas = () => {
   const contextReference = useRef(null);
 
   const [isPressed, setIsPressed] = useState(false);
+  const [letter, setLetter] = useState(null);
 
   const clearCanvas = () => {
     const canvas = canvasReference.current;
@@ -120,6 +121,7 @@ const Canvas = () => {
         body: data
       }).then(resp => {
         resp.json().then(data => {console.log(data)})
+        setLetter(data)
       })
     }
     Upload();
@@ -146,8 +148,13 @@ const Canvas = () => {
         onMouseMove={updateDraw}
         onMouseUp={endDraw}
       />
-      
-
+      <div>
+        {letter != null
+          ? <p>Your word: {letter}</p>
+          : <p>Loading...</p>
+        }
+      </div>
+      <p>You wrote: {letter}</p>
       <div className="buttons">
         <button onClick={clearCanvas}>Clear</button>
         <button onClick={submitCanvas}>Submit</button>

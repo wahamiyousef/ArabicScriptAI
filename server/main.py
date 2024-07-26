@@ -65,9 +65,22 @@ def uploadImg():
   if file:
     file_content = file.read().decode('utf-8')
 
+    starter = file_content.find(',')
+    image_data = file_content[starter+1:]
+    image_data = bytes(image_data, encoding="ascii")
+    im = Image.open(BytesIO(base64.b64decode(image_data)))
+
+    text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
+    print("Letter: "+text)
+
+    #im.save('images/rand.png')
+
+    
+
     #img = Image.open(file_content)
     #img.load()
 
+    """
     starter = file_content.find(',')
     image_data = file_content[starter+1:]
     image_data = bytes(image_data, encoding="ascii")
@@ -76,10 +89,10 @@ def uploadImg():
 
     text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
     print("Letter: "+text)
+    """
 
     return jsonify({
         'success': True,
-        'file': 'Received'
         'file': 'Received',
         'text': text
       })
@@ -89,24 +102,6 @@ def uploadImg():
       'message': 'No file uploaded'
     }), 400
 
-
-
-#print(str(random_letter)+"hi")
-
-
-'''
-@app.route("/api/users", methods=['GET'])
-def users():
-  return jsonify(
-    {
-      "users": [
-        'john',
-        'jack',
-        'jake'
-      ]
-    }
-  )
-'''
 
 if __name__ == "__main__":
   app.run(debug=True, port=8080)
