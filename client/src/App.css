@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.Header {
+  background-color: #10A3E2;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
