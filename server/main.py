@@ -9,7 +9,8 @@ import functions
 import base64
 from io import BytesIO
 
-pytesseract.pytesseract.tesseract_cmd = "c:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
+#pytesseract.pytesseract.tesseract_cmd = "c:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 app = Flask(__name__)
 cors = CORS(app, origins='*')
