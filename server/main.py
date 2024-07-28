@@ -9,15 +9,15 @@ import functions
 import base64
 from io import BytesIO
 
-pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
+#pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 #pytesseract.pytesseract.tesseract_cmd = "c:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 app = Flask(__name__)
 cors = CORS(app, origins='*')
 
-dir = os.path.dirname(os.path.abspath(__file__))
-img = Image.open(dir + "\images\\test5.png")
-img.load()
+#dir = os.path.dirname(os.path.abspath(__file__))
+#img = Image.open(dir + "\images\\test5.png")
+#img.load()
 
 '''
 tempFile = 
@@ -29,8 +29,8 @@ im.save('images/image.png')
 '''
 
 #img.show()
-text = pytesseract.image_to_string(img, lang="ara", config='--oem 1 --psm 6')
-print("text: "+text)
+#text = pytesseract.image_to_string(img, lang="ara", config='--oem 1 --psm 6')
+#print("text: "+text)
 #img = dir + '\\images\\test.png'
 #img = dir + "\\images\\test.png"
 #img2 = dir + "\\images\\test3.png"
@@ -40,8 +40,8 @@ print("text: "+text)
 
 @app.route('/')
 def index():
-  return text #arabtext + "test"
-print(text)
+  return "index page" #text #arabtext + "test"
+#print(text)
 #print(arabtext +"test")
   #print(pytesseract.image_to_string(Image.open(dir + '/images/test.png')))
 
@@ -71,7 +71,10 @@ def uploadImg():
     image_data = bytes(image_data, encoding="ascii")
     im = Image.open(BytesIO(base64.b64decode(image_data)))
 
-    text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
+    try:
+      text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
+    except:
+      text = "ERROR"
     print("Letter: "+text)
 
     #im.save('images/rand.png')

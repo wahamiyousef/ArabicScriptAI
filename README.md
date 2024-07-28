@@ -8,14 +8,14 @@
   An Arabic letter recognition utilizing OCR, helping out people learn!
     <br/>
     <br/>
-    [//]: <> (<a href="https://arabic-script-ai.vercel.app/">View Demo .</a>)
-    [//]: <> (<a href="https://github.com/wahamiyousef/ArabicScriptAI/issues/new?labels=bug&amp;template=bug_report.md">Report Bug .</a>)
-    [//]: <> (<a href="https://github.com/wahamiyousef/ArabicScriptAI/issues/new?labels=enhancement&amp;&template=feature_request.md">Request Feature</a>)
+    <a href="https://arabic-script-ai.vercel.app/">View Demo .</a>
+    <a href="https://github.com/wahamiyousef/ArabicScriptAI/issues/new?labels=bug&amp;template=bug_report.md">Report Bug .</a>
+    <a href="https://github.com/wahamiyousef/ArabicScriptAI/issues/new?labels=enhancement&amp;&template=feature_request.md">Request Feature</a>
   </p>
 </div>
 
 
-![Static Badge](https://img.shields.io/badge/version-WIP-red) ![Static Badge]()
+![Static Badge](https://img.shields.io/badge/version-WIP-red) ![Static Badge](https://img.shields.io/badge/frontend-ON-brightgreen) ![Static Badge](https://img.shields.io/badge/version-WIP-red) ![Static Badge](https://img.shields.io/badge/backend-OFF-red)
 
 ## Table of Contents
 
@@ -45,9 +45,11 @@ This project was built with the following technologies:
 ### Installation
 
   - Backend
-
   ```sh
   pip install -r requirements.txt
   ```
+
   - Frontend
-  npm start
+  ```sh
+  npm install
+  ```
