@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import Button from './Button';
 
 const Canvas = () => {
 
@@ -42,8 +43,11 @@ const Canvas = () => {
   useEffect(() => {
     const canvas = canvasReference.current;
 
-    canvas.width = 800;
-    canvas.height = 800;
+    //canvas.width = 800;
+    //canvas.height = 800;
+    canvas.width = 600;
+    canvas.height = '600';
+
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
@@ -148,7 +152,14 @@ const Canvas = () => {
 
       <canvas
         id="canvas"
-        style={{ backgroundColor: 'red' }}
+
+        style={{ 
+          backgroundColor: 'red',
+          border: `${2 * 10}px solid #0000`,
+          outline: '1px solid #000',
+          outlineOffset: `-${10}px`,
+          border: 'solid 25px white'
+        }}
 
         ref={canvasReference}
         onMouseDown={beginDraw}
@@ -164,8 +175,8 @@ const Canvas = () => {
       </div>
 
       <div className="buttons">
-        <button onClick={clearCanvas}>Clear</button>
-        <button onClick={submitCanvas}>Submit</button>
+        <Button onClick={clearCanvas}>Clear</Button>
+        <Button onClick={submitCanvas}>Submit</Button>
       </div>
 
     </div>

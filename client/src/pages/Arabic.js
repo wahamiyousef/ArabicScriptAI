@@ -10,11 +10,18 @@ function Arabic() {
     
       <div 
         style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+
+          /*
           display: 'block',
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)'
+          */
         }}>
         
         <Letter />

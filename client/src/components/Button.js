@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import React from 'react';
+import '../index.css'
 
 const Button = ({ children, link, onClick}) => {
   const [hover, setHover] = useState(false);
 
   const styles = {
-    link: {
-      font: 'bold 11px Arial',
+    primary: {
       textDecoration: 'none',
       backgroundColor: hover ? '#DDDDDD' : '#EEEEEE', 
       color: '#333333',
@@ -18,6 +18,7 @@ const Button = ({ children, link, onClick}) => {
       borderBottom: '1px solid #333333',
       borderLeft: '1px solid #CCCCCC',
       border: '1px solid #000000',
+      cursor: 'pointer',
     }
   }
   return (
@@ -26,7 +27,7 @@ const Button = ({ children, link, onClick}) => {
       href={link}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={styles.link}>
+      style={styles.primary}>
       {children}
     </a>
   );

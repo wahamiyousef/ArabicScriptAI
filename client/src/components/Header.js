@@ -7,13 +7,13 @@ const Header = () => {
   const styles = {
     link: {
       width: '98%',
-      backgroundColor: '#10A3E2',
+      backgroundColor: '#48B2E0',
       font: 'bold 11px Arial',
       textDecoration: 'none', 
       color: '#333333',
       padding: '15px 0% 15px 2%',
 
-      borderBottom: '2px solid #000000',
+      //borderBottom: '2px solid #000000',
 
 
     },
