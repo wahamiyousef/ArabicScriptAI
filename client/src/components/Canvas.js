@@ -154,11 +154,12 @@ const Canvas = () => {
         id="canvas"
 
         style={{ 
-          backgroundColor: 'red',
+          backgroundColor: 'white',
           border: `${2 * 10}px solid #0000`,
           outline: '1px solid #000',
           outlineOffset: `-${10}px`,
-          border: 'solid 25px white'
+          border: 'solid 25px white',
+          boxShadow: '3px 8px 15px #333333',
         }}
 
         ref={canvasReference}
