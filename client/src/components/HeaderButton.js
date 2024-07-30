@@ -6,19 +6,15 @@ const HeaderButton = ({ children, link, onClick}) => {
 
   const styles = {
     link: {
-      font: 'bold 11px Arial',
+      font: 'bold 14px Arial',
       textDecoration: 'none',
-      backgroundColor: hover ? '#000000' : '#EEEEEE', 
-      color: '#333333',
-      padding: '7px 10px 7px 10px',
+      backgroundColor: hover ? 'rgba(227, 220, 223, 0.2)' : 'rgba(0, 0, 0, 0)', 
+      color: hover ? '#000' : '#333333',
+      padding: '8px 10px 8px 10px',
       borderRadius: '4px',
-      marginLeft: '60px',
+      //marginLeft: '60px',
 
-      borderTop: '1px solid #CCCCCC',
-      borderRight: '1px solid #333333',
-      borderBottom: '1px solid #333333',
-      borderLeft: '1px solid #CCCCCC',
-      border: '1px solid #000000',
+      //border: hover ? '1px solid #000': '1px',
     }
   }
   return (

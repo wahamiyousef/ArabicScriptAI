@@ -8,10 +8,12 @@ const Header = () => {
     link: {
       width: '98%',
       backgroundColor: '#48B2E0',
-      font: 'bold 11px Arial',
+      font: 'bold 18px Atkinson Hyperlegible',
       textDecoration: 'none', 
-      color: '#333333',
+      color: '#000',
       padding: '15px 0% 15px 2%',
+      position: 'relative',
+
 
       //borderBottom: '2px solid #000000',
 
@@ -22,12 +24,22 @@ const Header = () => {
   return (
     <div
       style={styles.link}>
-      ARABICSCRIPTAI
+      <div style={{ display: 'inline-block', width:'200px' }}>
+        ArabicScriptAI
+      </div>
+      
 
-      <HeaderButton link='/'>
-        Home
-      </HeaderButton>
+      <div style={{ marginLeft: '60px', display: 'inline-block', width:'200px' }}>
+        <HeaderButton link='/'>
+          Home
+        </HeaderButton>
+        <HeaderButton link='/about'>
+          About
+        </HeaderButton>
+      </div>
+
     </div>
+      
   );
 };
 

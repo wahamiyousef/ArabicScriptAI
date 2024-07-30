@@ -10,11 +10,13 @@ import {
 } from 'react-router-dom';
 
 import Arabic from './pages/Arabic';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/arabic",
@@ -23,7 +25,13 @@ const router = createBrowserRouter([
   {
     path: "/english",
     element: <h1>WIP</h1>
-  }
+  },
+  /*
+  {
+    path: "/about",
+  },
+  */
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
