@@ -12,19 +12,13 @@ const Header = () => {
       textDecoration: 'none', 
       color: '#000',
       padding: '15px 0% 15px 2%',
-      position: 'relative',
-
-
-      //borderBottom: '2px solid #000000',
-
-
     },
   };
   
   return (
     <div
       style={styles.link}>
-      <div style={{ display: 'inline-block', width:'200px' }}>
+      <div style={{ display: 'inline-block', width:'120px' }}>
         ArabicScriptAI
       </div>
       

@@ -1,12 +1,14 @@
 import Canvas from '../components/Canvas';
 import Letter from '../components/Letter';
 import Header from '../components/Header';
+import Streak from '../components/Streak';
 import React from 'react';
 
 function Arabic() {
   return (
     <div>
       <Header />
+      <Streak />
     
       <div 
         style={{
