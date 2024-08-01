@@ -8,8 +8,6 @@ function Arabic() {
   return (
     <div>
       <Header />
-      <Streak />
-    
       <div 
         style={{
           display: 'flex',
@@ -25,10 +23,14 @@ function Arabic() {
           transform: 'translate(-50%, -50%)'
           */
         }}>
-        
-        <Letter />
+
+        <div style={{ display:'flex', flexDirection: 'row', gap: '50px' }}>
+          <Letter />
+          <Streak />
+        </div>
         <Canvas />
       </div>
+
     </div>
   );
 }

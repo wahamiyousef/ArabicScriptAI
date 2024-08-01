@@ -72,9 +72,7 @@ const Streak = () => {
         <button onClick={incrementScore}>Increment Score</button>
         <button onClick={decrementScore}>Decrement Score</button>
         */}
-        <div>
-          <code>{score}</code>
-        </div>
+        <p>{score}</p>
       </div>
     </div>
   );
