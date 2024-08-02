@@ -16,12 +16,14 @@ function App() {
       }}>
 
       <h1>FRONT PAGE</h1>
-      <Button link="/arabic">
-        Arabic
-      </Button>
-      <Button link="/english">
-        Eng
-      </Button>
+      <div style={{ display: 'flex', gap: '25px', alignItems: 'center', justifyContent: 'center' }}>
+        <Button link="/arabic">
+          Arabic
+        </Button>
+        <Button link="/english">
+          English
+        </Button>
+      </div>
     </div>
   );
 }

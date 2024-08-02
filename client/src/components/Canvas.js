@@ -175,8 +175,8 @@ const Canvas = () => {
         }
       </div>
 
-      <div className="buttons">
-        <Button onClick={clearCanvas}>Clear</Button>
+      <div className="buttons" style={{ display: 'flex', flexDirection: 'row', gap: '80%' }}>
+        <Button style={{float:'left'}} onClick={clearCanvas}>Clear</Button>
         <Button onClick={submitCanvas}>Submit</Button>
       </div>
 

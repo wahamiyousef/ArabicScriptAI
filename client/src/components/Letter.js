@@ -28,7 +28,7 @@ function Letter() {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center'}}>Write the letter: '{sound}' {letter}</h1>
+      <h1 style={{textAlign: 'center'}}>Write the letter: '{sound}'</h1>
       {/*letter && <p>{letter}</p>*/}
     </div>
   );

@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import Arabic from './pages/Arabic';
+import English from './pages/English';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/english",
-    element: <h1>WIP</h1>
+    element: <English />
   },
   /*
   {

@@ -57,6 +57,11 @@ def letters():
   return_json = functions.return_json()
   return return_json
 
+@app.route('/api/english', methods=['GET'])
+def words():
+  return_eng_json = functions.return_eng_json()
+  #print(return_eng_json)
+  return return_eng_json
 
 @app.route('/api/upload', methods=['POST'])
 def uploadImg():

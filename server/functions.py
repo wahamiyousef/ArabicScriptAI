@@ -5,6 +5,9 @@ from random import randint
 
 with open("arabic_alphabet.json", encoding="UTF-8") as f:
   data = json.load(f)
+
+with open("english_words.json", encoding="UTF-8") as f:
+  eng_data = json.load(f)
 '''
 f = open('arabic_alphabet.json', encoding="UTF-8")
 data = json.load(f)
@@ -23,6 +26,9 @@ def get_random_letter():
 
 def return_json():
   return data
+
+def return_eng_json():
+  return eng_data
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 

@@ -1,19 +1,28 @@
 import Canvas from '../components/Canvas';
-import Letter from '../components/Letter';
+import EnglishWords from '../components/EnglishWords';
+import Header from '../components/Header';
+import Streak from '../components/Streak';
 import React from 'react';
 
 function English() {
   return (
-    <div 
-      style={{
-        display: 'block',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
-      }}>
-      <Letter />
-      <Canvas />
+    <div>
+      <Header />
+      <div 
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+
+        <div style={{ display:'flex', flexDirection: 'row', gap: '50px' }}>
+          <EnglishWords />
+          <Streak />
+        </div>
+        <Canvas />
+      </div>
+
     </div>
   );
 }
