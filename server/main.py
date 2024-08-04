@@ -10,7 +10,7 @@ import base64
 from io import BytesIO
 
 #pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-#pytesseract.pytesseract.tesseract_cmd = "c:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = "c:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 app = Flask(__name__)
 cors = CORS(app, origins='*')
@@ -63,18 +63,24 @@ def words():
   #print(return_eng_json)
   return return_eng_json
 
-@app.route('/api/upload', methods=['POST'])
-def uploadImg():
-  files = request.files
-  file = files.get('file_to_upload')
 
-  if file:
+def UploadFunction(file):
     file_content = file.read().decode('utf-8')
 
     starter = file_content.find(',')
     image_data = file_content[starter+1:]
     image_data = bytes(image_data, encoding="ascii")
     im = Image.open(BytesIO(base64.b64decode(image_data)))
+    return im
+
+
+@app.route('/api/upload/arabic', methods=['POST'])
+def uploadImgAra():
+  files = request.files
+  file = files.get('file_to_upload')
+
+  if file:
+    im = UploadFunction(file)
 
     try:
       text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
@@ -82,29 +88,36 @@ def uploadImg():
       text = "ERROR"
     print("Letter: "+text)
 
-    #im.save('images/rand.png')
+    return jsonify({
+      'success': True,
+      'file': 'Received',
+      'text': text
+    })
+  else:
+    return jsonify({
+      'success': False,
+      'message': 'No file uploaded'
+    }), 400
+  
+@app.route('/api/upload/english', methods=['POST'])
+def uploadImgEng():
+  files = request.files
+  file = files.get('file_to_upload')
 
-    
+  if file:
+    im = UploadFunction(file)
 
-    #img = Image.open(file_content)
-    #img.load()
-
-    """
-    starter = file_content.find(',')
-    image_data = file_content[starter+1:]
-    image_data = bytes(image_data, encoding="ascii")
-    im = Image.open(BytesIO(base64.b64decode(image_data)))
-    im.save('images/rand.png')
-
-    text = pytesseract.image_to_string(im, lang="ara", config='--oem 3 --psm 6')
+    try:
+      text = pytesseract.image_to_string(im, lang="eng")
+    except:
+      text = "ERROR"
     print("Letter: "+text)
-    """
 
     return jsonify({
-        'success': True,
-        'file': 'Received',
-        'text': text
-      })
+      'success': True,
+      'file': 'Received',
+      'text': text
+    })
   else:
     return jsonify({
       'success': False,

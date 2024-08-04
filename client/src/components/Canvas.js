@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
 
-const Canvas = () => {
+const Canvas = ({ lang }) => {
 
   const canvasReference = useRef(null);
   const contextReference = useRef(null);
@@ -84,60 +84,32 @@ const Canvas = () => {
 
   const submitCanvas = async () => {
     const image = await getImage();
-    //console.log("bye"+image)
-  /*
-    if (image != null) {
-      const data = new FormData();
-      //console.log("bye"+image)
-      data.append('file_to_upload', image);
-      //console.log("hi"+data)
 
-      let response = await fetch('http://127.0.0.1:8080/api/upload',
-        {
-          method: 'POST',
-          body: data,
-        }
-      );
-      /*
-      let res = await response.json();
-      if (res.status !== 1){
-        alert('Error uploading file');
-      }
-        
-      console.log(await response.json());
-    }
-    */
-
-    
     const Upload = async () => {
       const data = new FormData();
-      //console.log("TYPE: "+typeof(image))
-      //data.append('file_to_upload', "https://cdn.discordapp.com/attachments/502568556999999518/1265758623930515569/image.png?ex=66a2ad14&is=66a15b94&hm=bfd682f8ab6324c35b6b8302022a5d34b8d1769c21722f855de7923b4b4fae9f&");
-      //console.log(data)
       
       const blob = new Blob([image], {type : 'text/plain'})
       data.append('file_to_upload', blob, 'file.txt')
       console.log(data)
-      //console.log(data)
-
-      const response = await fetch('http://127.0.0.1:8080/api/upload', {
+      const response = await fetch('http://127.0.0.1:8080/api/upload/arabic', {
         method: 'POST',
         body: data
       })
-      /*.then(resp => {
-        resp.json().then(data => {console.log(data)})
-        console.log(data)
+      console.log(lang)
+
+      /*
+      response = await fetch('http://127.0.0.1:8080/api/upload/english', {
+        method: 'POST',
+        body: data
       })
-        */
+      */
+      
+
       const result = await response.json();
       console.log(result.text);
-      //console.log(typeof(result.text));
       setLetter(result.text);
     }
     Upload();
-    
-
-    //document.body.appendChild(image);
     
   }
   
