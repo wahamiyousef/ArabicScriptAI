@@ -20,7 +20,7 @@ function English() {
           <EnglishWords />
           <Streak />
         </div>
-        <Canvas lang="eng"/>
+        <Canvas lang="english"/>
       </div>
 
     </div>

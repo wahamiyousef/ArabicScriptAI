@@ -90,19 +90,12 @@ const Canvas = ({ lang }) => {
       
       const blob = new Blob([image], {type : 'text/plain'})
       data.append('file_to_upload', blob, 'file.txt')
-      console.log(data)
-      const response = await fetch('http://127.0.0.1:8080/api/upload/arabic', {
+      //console.log(data)
+      // fetchs api depending on language
+      const response = await fetch('http://127.0.0.1:8080/api/upload/'+lang, {
         method: 'POST',
         body: data
       })
-      console.log(lang)
-
-      /*
-      response = await fetch('http://127.0.0.1:8080/api/upload/english', {
-        method: 'POST',
-        body: data
-      })
-      */
       
 
       const result = await response.json();

@@ -28,7 +28,7 @@ function Arabic() {
           <Letter />
           <Streak />
         </div>
-        <Canvas lang="ara"/>
+        <Canvas lang='arabic'/>
       </div>
 
     </div>
