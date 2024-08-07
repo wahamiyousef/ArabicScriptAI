@@ -9,12 +9,6 @@ function Letter() {
     const randInt = Math.floor(Math.random() * 28);
     fetch("http://localhost:8080/api/letters", {
       method: "GET"
-      /*
-      headers: {
-        "X-RapidAPI-Key": "your-api-key",
-        "X-RapidAPI-Host": "jokes-by-api-ninjas.p.rapidapi.com",
-      },
-      */
     })
       .then((response) => response.json())
       .then((data) => {
