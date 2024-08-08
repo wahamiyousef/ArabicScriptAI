@@ -23,7 +23,7 @@ function EnglishWords() {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center'}}>{arabic} "  اكتب الرسالة "</h1>
+      <h1 style={{textAlign: 'center'}}> "  اكتب الرسالة " {arabic}</h1>
     </div>
   );
 }
