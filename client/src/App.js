@@ -15,7 +15,10 @@ function App() {
         textAlign: 'center'
       }}>
 
-      <h1>FRONT PAGE</h1>
+      <h1>ArabicScriptAI</h1>
+      <h3>Welcome learner!</h3>
+      <br />
+      <p>Get Started</p>
       <div style={{ display: 'flex', gap: '25px', alignItems: 'center', justifyContent: 'center' }}>
         <Button link="/arabic">
           Arabic
