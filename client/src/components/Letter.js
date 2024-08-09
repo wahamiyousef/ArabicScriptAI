@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from "react";
-
+import pb from '../utils/pocketbase'
 
 function Letter() {
   const [letter, setLetter] = useState(null);
   const [sound, setSound] = useState(null);
 
   useEffect(() => {
-    const randInt = Math.floor(Math.random() * 28);
-    fetch("http://localhost:8080/api/letters", {
-      method: "GET"
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setLetter(data.alphabet[randInt].letter);
-        setSound(data.alphabet[randInt].sound);
-        //console.log("Log: "+JSON.stringify(data.alphabet));
-        console.log(data.alphabet[randInt].letter);
-      })
-      .catch((error) => console.log(error));
+    const fetchData = async () => {
+      try {
+        // Fetch the specific record from PocketBase
+        const record = await pb.collection('alphabet').getOne('enbhiu4yr86ugot');
+        
+        // Randomly select a letter from the alphabet array
+        const randInt = Math.floor(Math.random() * record.json.alphabet.length);
+        
+        setLetter(record.json.alphabet[randInt].letter);
+        setSound(record.json.alphabet[randInt].sound);
+
+        console.log(record.json.alphabet[randInt].letter);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        console.error("Error:", error.message, error.stack);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
     <div>
-      <h1 style={{textAlign: 'center'}}>Write the letter: '{sound}'</h1>
-      {/*letter && <p>{letter}</p>*/}
+      <h1 style={{ textAlign: 'center' }}>Write the letter: '{sound}'</h1>
+      {/*<p style={{ fontSize: '5rem', textAlign: 'center' }}>{letter}</p>*/}
     </div>
   );
 }

@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from "react";
-
+import pb from '../utils/pocketbase'
 
 function EnglishWords() {
   const [word, setWord] = useState(null);
   const [arabic, setArabic] = useState(null);
 
   useEffect(() => {
-    const randInt = Math.floor(Math.random() * 2);
-    fetch("http://localhost:8080/api/english", {
-      method: "GET"
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setWord(data.words[randInt].word);
-        setArabic(data.words[randInt].arabic);
-        //console.log("Log: "+JSON.stringify(data.alphabet));
-        console.log(data.words[randInt].word);
-        console.log(data.words[randInt].arabic);
-      })
-      .catch((error) => console.log(error));
+    const fetchData = async () => {
+      try {
+        // Fetch the specific record from PocketBase
+        const record = await pb.collection('alphabet').getOne('5xj955bygaik9yg');
+        
+        // Randomly select a letter from the alphabet array
+        const randInt = Math.floor(Math.random() * record.json.alphabet.length);
+        
+        setWord(record.json.alphabet[randInt].word);
+        setArabic(record.json.alphabet[randInt].arabic);
+
+        console.log(record.json.alphabet[randInt].letter);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        console.error("Error:", error.message, error.stack);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
