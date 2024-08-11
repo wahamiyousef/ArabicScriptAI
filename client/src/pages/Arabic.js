@@ -3,8 +3,11 @@ import Letter from '../components/Letter';
 import Header from '../components/Header';
 import Streak from '../components/Streak';
 import React from 'react';
+import { useState } from 'react';
 
 function Arabic() {
+  const [letter, setLetter] = useState('');
+  console.log('l:' + letter);
   return (
     <div>
       <Header />
@@ -17,10 +20,10 @@ function Arabic() {
         }}>
 
         <div style={{ display:'flex', flexDirection: 'row', gap: '50px' }}>
-          <Letter />
+          <Letter onLetterChange={setLetter}/>
           <Streak />
         </div>
-        <Canvas lang='arabic'/>
+        <Canvas lang='arabic' correctLetter={letter}/>
       </div>
 
     </div>

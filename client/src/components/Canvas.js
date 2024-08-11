@@ -1,13 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
+import Popup from './Popup';
 
-const Canvas = ({ lang }) => {
+const Canvas = ({ lang, correctLetter }) => {
 
   const canvasReference = useRef(null);
   const contextReference = useRef(null);
 
   const [isPressed, setIsPressed] = useState(false);
   const [letter, setLetter] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
 
   const clearCanvas = () => {
     const canvas = canvasReference.current;
@@ -80,7 +83,21 @@ const Canvas = ({ lang }) => {
     return image
   }
 
+  const openModal = () => {
+    console.log('Current letter:', letter);
+    //correctLetter = '/'
+    console.log('Correct letter:', correctLetter);
 
+    if (correctLetter === letter) {
+      setIsModalOpen(true);
+      setIsWrong(false); // Close wrong dialog if correct
+      console.log('Correct answer! Opening correct modal.');
+    } else {
+      setIsWrong(true);
+      setIsModalOpen(false); // Close correct modal if wrong
+      console.log('Wrong answer! Opening wrong modal.')
+    }
+  };
 
   const submitCanvas = async () => {
     const image = await getImage();
@@ -101,9 +118,24 @@ const Canvas = ({ lang }) => {
       const result = await response.json();
       console.log(result.text);
       setLetter(result.text);
+      //setLetter('a');
+      openModal();
     }
     Upload();
     
+  }
+/*
+  useEffect(() => {
+    if (letter === correctLetter) {
+      setIsModalOpen(true);
+    }
+  }, [letter, correctLetter]);
+  */
+  
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIsWrong(false);
   }
   
 
@@ -144,6 +176,23 @@ const Canvas = ({ lang }) => {
         <Button variant='clear' style={{float:'left'}} onClick={clearCanvas}>Clear</Button>
         <Button variant='submit' onClick={submitCanvas}>Submit</Button>
       </div>
+
+      {/*<Popup isOpen={isModalOpen} onClose={closeModal} />*/}
+
+      {isModalOpen && (
+        <Popup isOpen={isModalOpen} onClose={closeModal} variant='correct' />
+      )}
+
+      {isWrong && (
+        
+        <Popup isOpen={isWrong} onClose={closeModal} variant='wrong' />
+        /*
+        <dialog open>
+          <h2>WRONG!</h2>
+          <Button onClick={closeModal}>Oops</Button>
+        </dialog>
+        */
+      )}
 
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import pb from '../utils/pocketbase'
 
-function Letter() {
+function Letter({ onLetterChange }) {
   const [letter, setLetter] = useState(null);
   const [sound, setSound] = useState(null);
 
@@ -17,6 +17,9 @@ function Letter() {
         setLetter(record.json.alphabet[randInt].letter);
         setSound(record.json.alphabet[randInt].sound);
 
+        onLetterChange(record.json.alphabet[randInt].letter);
+        //console.log('A: '+ record.json.alphabet[randInt].letter)
+
         console.log(record.json.alphabet[randInt].letter);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -25,7 +28,7 @@ function Letter() {
     };
 
     fetchData();
-  }, []);
+  }, [onLetterChange]);
 
   return (
     <div>
