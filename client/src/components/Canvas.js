@@ -87,8 +87,10 @@ const Canvas = ({ lang, correctLetter }) => {
     console.log('Current letter:', letter);
     //correctLetter = '/'
     console.log('Correct letter:', correctLetter);
+    //const normalizedCorrectLetter = correctLetter.trim().toLowerCase();
+    //const normalizedLetter = letter.trim().toLowerCase();
 
-    if (correctLetter === letter) {
+    if (correctLetter.trim().toLowerCase() === letter.trim().toLowerCase()) {
       setIsModalOpen(true);
       setIsWrong(false); // Close wrong dialog if correct
       console.log('Correct answer! Opening correct modal.');
@@ -119,18 +121,16 @@ const Canvas = ({ lang, correctLetter }) => {
       console.log(result.text);
       setLetter(result.text);
       //setLetter('a');
-      openModal();
     }
     Upload();
     
   }
-/*
+
   useEffect(() => {
-    if (letter === correctLetter) {
-      setIsModalOpen(true);
+    if (letter) {
+      openModal();
     }
-  }, [letter, correctLetter]);
-  */
+}, [letter]);
   
 
   const closeModal = () => {
