@@ -15,7 +15,7 @@
 </div>
 
 
-![Static Badge](https://img.shields.io/badge/version-WIP-red) ![Static Badge](https://img.shields.io/badge/frontend-ON-brightgreen) ![Static Badge](https://img.shields.io/badge/backend-OFF-red)
+![Static Badge](https://img.shields.io/badge/version-WIP-red) ![Static Badge](https://img.shields.io/badge/frontend-ON-brightgreen) ![Static Badge](https://img.shields.io/badge/backend-ON-brightgreen)
 
 ## Table of Contents
 
