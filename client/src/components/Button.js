@@ -32,11 +32,15 @@ const Button = ({ children, link, onClick, variant = 'primary' }) => {
       //border: '1px solid white',
     },
     clear: {
-      backgroundColor: hover ? '#E59100' : '#FFA500',
+      backgroundColor: hover ? '#E58D00' : '#FFA500',
       color: '#111111'
     },
     submit: {
-      backgroundColor: hover ? '#40B25E' : '#50E379',
+      backgroundColor: hover ? '#49CC6C' : '#50E379',
+      color: '#111111'
+    },
+    cancel: {
+      backgroundColor: hover ? '#E51926' : '#FF1C2B',
       color: '#111111'
     },
   };
